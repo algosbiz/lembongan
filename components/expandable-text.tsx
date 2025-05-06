@@ -24,11 +24,11 @@ export default function ExpandableText({ preview, fullText, className, symbolCol
   }, [expanded, onToggle]);
 
   return (
-    <div className={`leading-8 text-xl text-justify ${className}`}>
+    <div className={`lg:leading-10 text-[23px] lg:text-[26px] text-justify ${className}`}>
       <p>{preview}</p>
 
-      <button onClick={() => setExpanded(!expanded)} className="mt-4 font-light flex items-center gap-3 focus:outline-none" style={{ color: symbolColor }}>
-        <span className="text-white w-7 h-7 inline-flex items-center justify-center text-xl rounded-full" style={{ backgroundColor: symbolColor }}>
+      <button onClick={() => setExpanded(!expanded)} className="lg:mt-4 font-light -mb-4 lg:-mb-0 flex items-center gap-3 focus:outline-none" style={{ color: symbolColor }}>
+        <span className="text-white w-7 h-7 inline-flex items-center justify-center text-xl " style={{ backgroundColor: symbolColor }}>
           {expanded ? "−" : "+"}
         </span>
         Read More

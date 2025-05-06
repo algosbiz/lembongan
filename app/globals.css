@@ -1,3 +1,9 @@
+:root {
+  --font-barlow: 'Barlow Semi Condensed', sans-serif;
+  --font-poppins-600: 'Poppins', sans-serif;
+  --font-montserrat-600: 'Montserrat', sans-serif;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -64,6 +70,31 @@
     --input: 217.2 32.6% 17.5%;
     --ring: 212.7 26.8% 83.9%;
   }
+}
+
+body {
+  font-family: var(--font-barlow);
+  font-weight: 400;
+  font-size: 23px; /* Default untuk mobile */
+  line-height: 1.6;
+}
+
+/* Desktop: font lebih besar */
+@media (min-width: 768px) {
+  body {
+    font-size: 26px;
+  }
+}
+
+/* Custom heading fonts */
+.font-poppins-600 {
+  font-family: var(--font-poppins-600);
+  font-weight: 600;
+}
+
+.font-montserrat-600 {
+  font-family: var(--font-montserrat-600);
+  font-weight: 600;
 }
 
 @layer base {
@@ -165,4 +196,38 @@
     opacity: 0;
   }
 }
+
+@keyframes fadeInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-fade-in-left {
+  animation: fadeInLeft 1s ease-out forwards;
+}
+
+.animate-fade-in-right {
+  animation: fadeInRight 1s ease-out forwards;
+}
+
+
+
+
 

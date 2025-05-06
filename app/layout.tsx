@@ -1,11 +1,25 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { Poppins } from "next/font/google";
+import { Barlow_Semi_Condensed, Poppins, Montserrat } from "next/font/google";
 
-const poppins = Poppins({
+// Font default body
+const barlow = Barlow_Semi_Condensed({
   subsets: ["latin"],
-  weight: ["400", "600", "700"],
-  variable: "--font-poppins",
+  weight: "400",
+  variable: "--font-barlow",
+});
+
+// Custom heading fonts
+const poppinsSemiBold = Poppins({
+  subsets: ["latin"],
+  weight: "600",
+  variable: "--font-poppins-600",
+});
+
+const montserratSemiBold = Montserrat({
+  subsets: ["latin"],
+  weight: "600",
+  variable: "--font-montserrat-600",
 });
 
 export const metadata: Metadata = {
@@ -20,11 +34,11 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Diving for Kids in Bali – Fun & Safe Adventures",
     description: "Let your kids explore the underwater world safely with our certified diving instructors in Nusa Lembongan.",
-    url: "https://phenomenal-valkyrie-9b41da.netlify.app", // Ganti dengan domain asli
+    url: "https://phenomenal-valkyrie-9b41da.netlify.app",
     siteName: "Legend Diving Lembongan",
     images: [
       {
-        url: "https://phenomenal-valkyrie-9b41da.netlify.app/images/banner.jpg", // Ganti dengan URL gambar OG
+        url: "https://phenomenal-valkyrie-9b41da.netlify.app/images/banner.jpg",
         width: 1200,
         height: 630,
         alt: "Kids scuba diving in Bali",
@@ -38,7 +52,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Diving for Kids in Bali – Fun & Safe Adventures",
     description: "Fun and safe scuba diving programs for children in Nusa Lembongan, Bali.",
-    images: ["https://phenomenal-valkyrie-9b41da.netlify.app/images/banner.jpg"], // Ganti juga ini
+    images: ["https://phenomenal-valkyrie-9b41da.netlify.app/images/banner.jpg"],
   },
 };
 
@@ -48,9 +62,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={poppins.variable}>
+    <html lang="en" className={`${barlow.variable} ${poppinsSemiBold.variable} ${montserratSemiBold.variable}`}>
       <head>
-        {/* Fallback for crawlers that don’t use metadata object */}
         <meta name="robots" content="noindex, nofollow" />
         <meta property="og:title" content="Diving for Kids in Bali – Fun & Safe Adventures" />
         <meta property="og:description" content="Let your kids explore the underwater world safely with our certified diving instructors in Nusa Lembongan." />
@@ -58,7 +71,7 @@ export default function RootLayout({
         <meta property="og:url" content="https://phenomenal-valkyrie-9b41da.netlify.app" />
         <meta name="twitter:card" content="summary_large_image" />
       </head>
-      <body className="font-poppins">{children}</body>
+      <body>{children}</body>
     </html>
   );
 }
