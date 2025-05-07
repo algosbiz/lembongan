@@ -8,30 +8,36 @@ import Image from "next/image";
 
 const menuItems = [
   {
-    title: "Go Diving",
-    items: ["Daily Fun Diving", "Snorkeling"],
+    title: "Locations",
+    items: [
+      { name: "Nusa Penida", href: "/locations/penida" },
+      { name: "Nusa Lembongan", href: "/locations/lembongan" },
+      { name: "Komodo", href: "/locations/komodo" },
+    ],
   },
-  // {
-  //   title: "Visit & Stay",
-  //   items: ["About Us", "Transfer & Lodging", "News"],
-  // },
   {
     title: "PADI Courses",
-    items: ["About Our Courses", "Beginner Courses", "Advanced Courses"],
+    items: [
+      { name: "Our Courses", href: "/padi/courses" },
+      { name: "GO Professionals", href: "/padi/professionals" },
+    ],
   },
   {
-    title: "Become Pro",
-    items: ["Divemaster Courses", "Instructor Development Course", "Beyond Instructor", "Course Director Training"],
+    title: "Go Diving",
+    items: [
+      { name: "Fun Diving", href: "/diving/fun" },
+      { name: "Snorkeling", href: "/diving/snorkeling" },
+    ],
   },
   {
-    title: "Conservation Courses",
-    items: ["About Our Courses", "1.5 Days Courses", "3.5 Days Courses", "6 Days Courses", "3 Weeks Program", "About Marine Megafauna"],
+    title: "Conservation",
+    items: [
+      { name: "Our Courses", href: "/conservation/courses" },
+      { name: "Our Internship", href: "/conservation/internship" },
+    ],
   },
-  // {
-  //   title: "Pricing",
-  //   items: ["Price lists", "Special Offers", "General Terms & Conditions"],
-  // },
 ];
+
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -75,11 +81,11 @@ export default function Navbar() {
     <header className="sticky top-0 z-50 w-full bg-black text-white">
       <div className="w-full">
         {/* Gunakan wrapper tambahan untuk kontrol lebar dan posisi */}
-        <div className="mx-72">
+        <div className="lg:mx-72">
           <div className="flex h-20 items-center justify-between w-full">
             {/* Logo */}
             <Link href="/" className="flex items-center">
-              <div className="w-32 md:w-40 lg:w-48">
+              <div className="w-44 md:w-40 lg:w-48">
                 <Image src="/icon/logo.png" alt="Logo" width={200} height={200} className="w-full h-auto object-contain" priority />
               </div>
             </Link>
@@ -99,8 +105,8 @@ export default function Navbar() {
                       <div className={`absolute left-0 top-full bg-black text-white shadow-lg min-w-[140px] z-50 overflow-hidden ${animatingOutMenu === item.title ? "animate-dropdown-out" : "animate-dropdown-in"}`}>
                         <div className="py-1">
                           {item.items.map((subItem) => (
-                            <Link key={subItem} href="#" className="block px-4 py-2 text-sm hover:bg-gray-800 whitespace-nowrap transition-colors">
-                              {subItem}
+                            <Link key={subItem.name} href={subItem.href} className="block px-4 py-2 text-sm hover:bg-gray-800 whitespace-nowrap transition-colors">
+                              {subItem.name}
                             </Link>
                           ))}
                         </div>
@@ -115,7 +121,7 @@ export default function Navbar() {
 
               {/* Mobile menu toggle */}
               <Button variant="ghost" size="icon" className="lg:hidden text-white ml-2" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
-                {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+                {mobileMenuOpen ? <X className="h-10 w-10" /> : <Menu className="h-10 w-10" />}
                 <span className="sr-only">Toggle menu</span>
               </Button>
             </div>
@@ -138,8 +144,8 @@ export default function Navbar() {
                   {openSubmenu === item.title && (
                     <div className="pl-4 pb-4 space-y-2 animate-fade-in">
                       {item.items.map((subItem) => (
-                        <Link key={subItem} href="#" className="block py-2 text-gray-300 hover:text-white text-[16px] transition-colors">
-                          {subItem}
+                        <Link key={subItem.name} href={subItem.href} className="block px-4 py-2 text-sm hover:bg-gray-800 whitespace-nowrap transition-colors">
+                          {subItem.name}
                         </Link>
                       ))}
                     </div>

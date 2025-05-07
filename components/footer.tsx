@@ -5,7 +5,8 @@ export default function Footer() {
   return (
     <footer className="bg-black text-white py-12 px-5 lg:px-0">
       <div className="mx-auto">
-        <div className="container mx-auto">
+        <div className="mx-auto">
+          <div className="lg:mx-72">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             <div className="max-w-[180px] w-full">
               <Image src="/icon/lg.png" alt="Logo" width={300} height={300} className="w-full h-auto object-contain" />
@@ -41,6 +42,7 @@ export default function Footer() {
                 <Image src="/icon/trip.png" alt="Logo" width={300} height={300} className="w-full h-auto object-contain" />
               </div>
             </div>
+          </div>
           </div>
         </div>
         {/* Horizontal gray line */}

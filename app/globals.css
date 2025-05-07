@@ -228,6 +228,32 @@ body {
 }
 
 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  @keyframes underwater {
+    0% {
+      background-position: 50% 50%, 50% 50%;
+    }
+    50% {
+      background-position: 53% 53%, 47% 48%;
+    }
+    100% {
+      background-position: 50% 50%, 50% 50%;
+    }
+  }
+
+  .animate-underwater {
+    animation: underwater 20s ease-in-out infinite;
+  }
+}
+
+
+
+
+
 
 
 
