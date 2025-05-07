@@ -5,19 +5,18 @@ import Image from "next/image";
 import { PinContainer } from "./ui/3dPin";
 
 type AnimatedPinProps = {
-  title: string;
-  href: string;
+  titles: { label: string; href: string }[];
   heading: string;
-  description: string;
+  description?: string;
   imageSrc: string;
   imageAlt?: string;
-  iconSrc?: string; // optional icon above heading
+  iconSrc?: string;
 };
 
-export function AnimatedPin({ title, href, heading, description, imageSrc, imageAlt = "background image", iconSrc }: AnimatedPinProps) {
+export function AnimatedPin({ titles, heading, description, imageSrc, imageAlt = "background image", iconSrc }: AnimatedPinProps) {
   return (
     <div className="h-full z-10 w-full flex items-center justify-center">
-      <PinContainer title={title} href={href}>
+      <PinContainer titles={titles}>
         <div className="relative w-[20rem] h-[20rem] rounded-xl overflow-hidden shadow-lg">
           {/* Background Image */}
           <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${imageSrc})` }} aria-hidden="true" />
@@ -28,7 +27,8 @@ export function AnimatedPin({ title, href, heading, description, imageSrc, image
             <div>
               {iconSrc && <Image src={iconSrc} width={40} height={40} alt="icon" className="mb-2" />}
               <h3 className="text-white text-2xl font-light mb-2">{heading}</h3>
-              <p className="text-[#dcf106] text-lg">{description}</p>
+
+              {description && <p className="text-gray-300 text-sm mt-2">{description}</p>}
             </div>
           </div>
         </div>

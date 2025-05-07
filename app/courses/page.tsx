@@ -94,9 +94,40 @@ export default function Courses() {
             <h2 className="font-poppins-600 lg:text-[45px] text-[32px] text-[#007c87] lg:text-center font-semibold mb-12">Learn More About Our Snorkeling Trips</h2>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <AnimatedPin title="Snorkeling in Lembongan" href="/snorkeling/komodo" heading="Snorkeling in Lembongan" description="Start Your Certification" imageSrc="/images/teach.jpg" iconSrc="/wiggle.png" />
-              <AnimatedPin title="Snorkeling in Penida" href="/snorkeling/komodo" heading="Snorkeling in Penida" description="Start Your Certification" imageSrc="/images/teach.jpg" iconSrc="/wiggle.png" />
-              <AnimatedPin title="Snorkeling in Komodo" href="/snorkeling/komodo" heading="Snorkeling in Komodo" description="Start Your Certification" imageSrc="/images/teach.jpg" iconSrc="/wiggle.png" />
+              <AnimatedPin
+                heading="Explore the Depths"
+                description="Snorkeling and diving adventures await."
+                imageSrc="/images/teach.jpg"
+                iconSrc="/wiggle.png"
+                titles={[
+                  { label: "Snorkeling Info", href: "https://example.com/snorkeling" },
+                  { label: "Diving Guide", href: "https://example.com/diving" },
+                  { label: "Book a Trip", href: "https://example.com/book" },
+                ]}
+              />
+
+              <AnimatedPin
+                titles={[
+                  { label: "Course A", href: "/course-a" },
+                  { label: "Course B", href: "/course-b" },
+                  { label: "Course C", href: "/course-c" },
+                ]}
+                heading="Snorkeling in Penida"
+                description="Start Your Certification"
+                imageSrc="/images/teach.jpg"
+                iconSrc="/wiggle.png"
+              />
+              <AnimatedPin
+                titles={[
+                  { label: "Course A", href: "/course-a" },
+                  { label: "Course B", href: "/course-b" },
+                  { label: "Course C", href: "/course-c" },
+                ]}
+                heading="Snorkeling in Komodo"
+                description="Start Your Certification"
+                imageSrc="/images/teach.jpg"
+                iconSrc="/wiggle.png"
+              />
             </div>
           </div>
         </section>
