@@ -61,15 +61,15 @@ export default function Courses() {
               <div className="relative z-10">
                 {/* Watermark behind the text */}
                 <FadeInLeft>
-                <div className="absolute inset-0 left-0 z-0 flex items-start justify-start opacity-40 pointer-events-none">
-                  <Image src="/hrwm.png" alt="Watermark" width={100} height={100} className="w-[100px] lg:w-[130px] object-contain" />
+                <div className="absolute inset-0  left-0 z-0 flex items-start justify-start opacity-20 pointer-events-none">
+                  <Image src="/hrwm.png" alt="Watermark" width={100} height={100} className="w-[100px] lg:w-[170px] object-contain" />
                 </div>
                 </FadeInLeft>
 
                 {/* Foreground text */}
                 <FadeInLeft>
-                  <div className="relative z-10">
-                    <h4 className="font-montserrat-600 text-[20px] lg:text-[25px] text-[#dcf106] font-semibold">Your holiday’s highlight!</h4>
+                  <div className="relative z-10 mt-10">
+                    <h4 className="font-montserrat-600 text-[20px] lg:mb-6 lg:text-[25px] text-[#dcf106] font-semibold">Your holiday’s highlight!</h4>
                     <h2 className="font-poppins-600 lg:text-[45px] text-[32px] text-white max-w-md font-semibold lg:mb-6 lg:mt-0 mb-5 leading-tight">Set Off On an Exhilarating Day Trip Adventure</h2>
                   </div>
                   <ExpandableText

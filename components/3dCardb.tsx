@@ -22,7 +22,7 @@ export function ThreeDCardB({ title, description, imageUrl, imageAlt = "thumbnai
     <CardContainer className="inter-var cursor-pointer">
       <CardBody className="bg-gradient-to-tl from-[#3eb8bf] to-[#021f29] relative group/card dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black dark:border-white/[0.2] border-black/[0.1] w-auto sm:w-[25rem] h-full rounded-xl p-6 border">
         {/* Background Image Section with Text Overlay */}
-        <CardItem translateZ="100" className="relative w-full h-60 mt-4 rounded-br-2xl overflow-hidden" onClick={() => onImageClick?.(popupId!)}>
+        <CardItem translateZ="100" className="relative w-full h-60 mt-4 rounded-br-[40px] rounded-bl-sm rounded-tl-sm rounded-tr-sm overflow-hidden" onClick={() => onImageClick?.(popupId!)}>
           <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${imageUrl})` }} aria-hidden="true" />
           <div className="absolute inset-0 bg-black/40" />
         </CardItem>

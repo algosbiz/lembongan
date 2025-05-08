@@ -7,7 +7,7 @@ export default function Footer() {
       <div className="mx-auto">
         <div className="mx-auto">
           <div className="lg:mx-72">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 items-center">
             <div className="max-w-[180px] w-full">
               <Image src="/icon/lg.png" alt="Logo" width={300} height={300} className="w-full h-auto object-contain" />
             </div>

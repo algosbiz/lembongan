@@ -17,7 +17,7 @@ export function AnimatedPin({ titles, heading, description, imageSrc, imageAlt =
   return (
     <div className="h-full z-10  flex items-center justify-center">
       <PinContainer titles={titles}>
-        <div className="relative w-[650px] h-[22rem] rounded-br-xl overflow-hidden shadow-lg">
+        <div className="relative w-[650px] h-[22rem] rounded-br-[40px] rounded-bl-sm rounded-tl-sm rounded-tr-sm overflow-hidden shadow-lg">
           {/* Background Image */}
           <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${imageSrc})` }} aria-hidden="true" />
           {/* Overlay */}

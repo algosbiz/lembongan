@@ -23,22 +23,21 @@ export function ThreeDCardC({ title, description, imageUrl, imageAlt = "thumbnai
     <CardContainer className="inter-var cursor-pointer">
       <CardBody className="bg-gradient-to-tl from-[#3eb8bf] to-[#021f29] relative group/card dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black dark:border-white/[0.2] border-black/[0.1] w-auto sm:w-[25rem] h-full rounded-xl p-6 border">
         {/* Background Image Section with Text Overlay */}
-        <CardItem translateZ="100" className="relative w-full h-60 mt-4 rounded-br-2xl overflow-hidden" onClick={() => onImageClick?.(popupId!)}>
+        <CardItem translateZ="100" className="relative w-full h-60 mt-4 rounded-br-[40px] rounded-bl-sm rounded-tl-sm rounded-tr-sm overflow-hidden" onClick={() => onImageClick?.(popupId!)}>
           <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${imageUrl})` }} aria-hidden="true" />
           <div className="absolute inset-0 bg-black/40" />
           <div className="relative z-10 h-full flex flex-col justify-end p-4 text-white">
-            <Button className="bg-[#ff0000]  text-white text-xs font-bold">Sign up</Button>
+            <Image src="/wiggle.png" alt="Logo" width={40} height={40} className="mb-0" />
+            <h3 className="text-lg font-semibold">{title}</h3>
+            <p className="text-sm">{description}</p>
           </div>
         </CardItem>
 
         {/* Action Buttons */}
-        <div className="flex justify-between items-center mt-20">
-          <CardItem translateZ={20} as="a" href={linkHref} target="_blank" className="px-4 py-2 rounded-xl  text-sm font-normal text-white">
-            {linkText}
-          </CardItem>
-          <CardItem translateZ={20} as="button" onClick={onButtonClick} className="px-4 py-2 rounded-xl bg-black dark:bg-white dark:text-black text-white text-xs font-bold">
-            {buttonText}
-          </CardItem>
+        <div className="flex justify-center items-center mt-20">
+          <div className="relative z-10 w-full h-full flex flex-col items-center justify-end p-4 text-white">
+            <Button className="bg-[#ff0000] h-[62px] flex items-center w-full text-white text-[20px]">Sign up</Button>
+          </div>
         </div>
       </CardBody>
     </CardContainer>

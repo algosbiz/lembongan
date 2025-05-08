@@ -19,7 +19,7 @@ export const PinContainer = ({ children, titles, className, containerClassName }
       <div style={{ perspective: "1000px", transform: "rotateX(70deg) translateZ(0deg)" }} className="absolute left-1/2 top-1/2 ml-[0.09375rem] mt-4 -translate-x-1/2 -translate-y-1/2">
         <div
           style={{ transform }}
-          className="absolute left-1/2 p-0 top-1/2 flex justify-start items-start rounded-br-3xl shadow-[0_8px_16px_rgb(0_0_0/0.4)] bg-transparent border border-white/[0.1] group-hover/pin:border-white/[0.2] transition duration-700 overflow-hidden"
+          className="absolute left-1/2 p-0 top-1/2 flex justify-start items-start rounded-br-[40px] rounded-bl-sm rounded-tl-sm rounded-tr-sm shadow-[0_8px_16px_rgb(0_0_0/0.4)] bg-transparent border border-white/[0.1] group-hover/pin:border-white/[0.2] transition duration-700 overflow-hidden"
         >
           <div className={cn("relative z-50", className)}>{children}</div>
         </div>
@@ -44,17 +44,8 @@ export const PinPerspective = ({ titles }: { titles?: { label: string; href: str
                 <Image src="/map.png" alt="Logo" width={60} height={60} />
               </div>
 
-              <ButtonGlowing
-                as={Link}
-                href={item.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                borderRadius="9999px"
-                duration={3000}
-                containerClassName="w-fit mt-8" // ruang untuk gambar di atas
-                className="py-1 px-4 text-sm font-bold"
-              >
-                <span className="text-white">{item.label}</span>
+              <ButtonGlowing as={Link} href={item.href} target="_blank" rel="noopener noreferrer" borderRadius="9999px" duration={3000} containerClassName="w-fit mt-8" className="py-1 px-4 text-xl font-bold">
+                <span className="text-[#dcf106]">{item.label}</span>
                 <span className="absolute -bottom-0 left-[1.125rem] h-px w-[calc(100%-2.25rem)] bg-gradient-to-r from-emerald-400/0 via-emerald-400/90 to-emerald-400/0 transition-opacity duration-500 group-hover/btn:opacity-40" />
               </ButtonGlowing>
             </div>
