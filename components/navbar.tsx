@@ -81,7 +81,7 @@ export default function Navbar() {
     <header className="sticky top-0 z-50 w-full bg-black text-white">
       <div className="w-full">
         {/* Gunakan wrapper tambahan untuk kontrol lebar dan posisi */}
-        <div className="lg:mx-72">
+        <div className="xl:mx-72 ">
           <div className="flex h-20 items-center justify-between w-full">
             {/* Logo */}
             <Link href="/" className="flex items-center">

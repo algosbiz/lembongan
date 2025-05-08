@@ -45,7 +45,7 @@ export default function Courses() {
     <Layout>
       <section className="relative hidden md:flex items-center justify-start h-[500px] bg-cover bg-center" style={{ backgroundImage: "url('/images/snorkeling.jpg')" }}>
         <div className="absolute inset-0 bg-black/40" />
-        <div className="relative container mx-72 px-4 lg:px-0">
+        <div className="relative container xl:mx-72 px-4 lg:px-0">
           <div className="max-w-5xl p-0 rounded-md">
             <FadeInLeft>
               <h1 className="font-poppins-600 lg:text-[75px] text-[40px] leading-tight font-semibold text-white mb-4">SNORKELING DAY TRIPS</h1>
