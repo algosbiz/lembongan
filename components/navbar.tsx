@@ -96,16 +96,16 @@ export default function Navbar() {
               <nav className="hidden lg:flex items-center">
                 {menuItems.map((item) => (
                   <div key={item.title} className="relative" onMouseEnter={() => handleMouseEnter(item.title)} onMouseLeave={() => handleMouseLeave(item.title)}>
-                    <button className="px-3 py-2 text-gray-300 text-[16px] hover:text-white flex items-center transition-colors">
+                    <button className="px-3 py-2 font-medium text-gray-300 text-[16px] hover:text-white flex items-center transition-colors">
                       {item.title}
                       <ChevronDown className="ml-1 h-4 w-4" />
                     </button>
 
                     {(activeDesktopMenu === item.title || animatingOutMenu === item.title) && (
-                      <div className={`absolute left-0 top-full bg-black text-white shadow-lg min-w-[140px] z-50 overflow-hidden ${animatingOutMenu === item.title ? "animate-dropdown-out" : "animate-dropdown-in"}`}>
-                        <div className="py-1">
+                      <div className={`absolute left-0 top-full rounded-b-lg bg-black text-white font-medium shadow-lg min-w-[140px] z-50 overflow-hidden ${animatingOutMenu === item.title ? "animate-dropdown-out" : "animate-dropdown-in"}`}>
+                        <div className="pt-5">
                           {item.items.map((subItem) => (
-                            <Link key={subItem.name} href={subItem.href} className="block px-4 py-2 text-sm hover:bg-gray-800 whitespace-nowrap transition-colors">
+                            <Link key={subItem.name} href={subItem.href} className="block px-4  py-3 text-sm hover:bg-[#45c0c6] whitespace-nowrap transition-colors">
                               {subItem.name}
                             </Link>
                           ))}

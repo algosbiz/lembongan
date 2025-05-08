@@ -92,87 +92,87 @@ export default function Courses() {
         <section className="min-h-[645px] flex items-center justify-center bg-cover bg-center">
           <div className="container lg:mx-72 px-4 lg:px-0 pt-[43px] pb-[50px] lg:pt-[111px] lg:pb-[130px]">
             <h2 className="font-poppins-600 lg:text-[45px] text-[32px] text-[#007c87] lg:text-center font-semibold mb-12">Learn More About Our Snorkeling Trips</h2>
+            <div className="">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <ThreeDCard
+                  title="Explore the Ocean"
+                  description="Join our guided diving experience and see the underwater world like never before."
+                  imageUrl="/images/couple.jpg"
+                  imageAlt="Ocean view"
+                  linkText="Learn More"
+                  linkHref="/dive"
+                  buttonText="Book Now"
+                  onButtonClick={() => alert("Booking initiated!")}
+                  onImageClick={handleImageClick}
+                  popupId={1}
+                />
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <AnimatedPin
-                heading="Explore the Depths"
-                description="Snorkeling and diving adventures await."
-                imageSrc="/images/teach.jpg"
-                iconSrc="/wiggle.png"
-                titles={[
-                  { label: "Snorkeling Info", href: "https://example.com/snorkeling" },
-                  { label: "Diving Guide", href: "https://example.com/diving" },
-                  { label: "Book a Trip", href: "https://example.com/book" },
-                ]}
-              />
-
-              <AnimatedPin
-                titles={[
-                  { label: "Course A", href: "/course-a" },
-                  { label: "Course B", href: "/course-b" },
-                  { label: "Course C", href: "/course-c" },
-                ]}
-                heading="Snorkeling in Penida"
-                description="Start Your Certification"
-                imageSrc="/images/teach.jpg"
-                iconSrc="/wiggle.png"
-              />
-              <AnimatedPin
-                titles={[
-                  { label: "Course A", href: "/course-a" },
-                  { label: "Course B", href: "/course-b" },
-                  { label: "Course C", href: "/course-c" },
-                ]}
-                heading="Snorkeling in Komodo"
-                description="Start Your Certification"
-                imageSrc="/images/teach.jpg"
-                iconSrc="/wiggle.png"
-              />
+                <ThreeDCard
+                  title="Explore the Ocean"
+                  description="Join our guided diving experience and see the underwater world like never before."
+                  imageUrl="/images/couple.jpg"
+                  imageAlt="Ocean view"
+                  linkText="Learn More"
+                  linkHref="/dive"
+                  buttonText="Book Now"
+                  onButtonClick={() => alert("Booking initiated!")}
+                  onImageClick={handleImageClick}
+                  popupId={2}
+                />
+                <ThreeDCard
+                  title="Explore the Ocean"
+                  description="Join our guided diving experience and see the underwater world like never before."
+                  imageUrl="/images/couple.jpg"
+                  imageAlt="Ocean view"
+                  linkText="Learn More"
+                  linkHref="/dive"
+                  buttonText="Book Now"
+                  onButtonClick={() => alert("Booking initiated!")}
+                  onImageClick={handleImageClick}
+                  popupId={2}
+                />
+              </div>
+              {activePopupId !== null && (
+                <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50">
+                  <CoursePopup title={activePopupId === 1 ? "Available Courses" : "Kids Programs"} courses={activePopupId === 1 ? courseData1 : courseData2} onClose={closePopup} />
+                </div>
+              )}
             </div>
           </div>
         </section>
         <section className="min-h-[645px] flex items-center justify-center bg-cover bg-center" style={{ backgroundImage: "url('/bgn.png')" }}>
-          <div className="container lg:mx-72 px-4 lg:px-0 pt-[43px] pb-[50px] lg:pt-[111px] lg:pb-[130px]">
+          <div className="container lg:mx-72 px-4 lg:px-0 pt-[43px] pb-[50px] lg:pt-[111px] lg:pb-[160px]">
             <h2 className="font-poppins-600 lg:text-[45px] text-[32px] text-white lg:text-center font-semibold mb-12">Learn To Dive</h2>
-
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {/* Grid Item 1 */}
-              {/* Grid Item 1 */}
-              <div className="relative ">
-                {/* Gambar konten */}
-                <div className="relative h-[400px] w-full overflow-hidden rounded-xl shadow-lg">
-                  <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: "url('/images/couple.jpg')" }} />
-                  <div className="absolute inset-0 bg-black/50" />
-                  <div className="relative z-10 h-full flex items-end justify-start px-8 pb-8 text-left">
-                    <div>
-                      <Image src="/wiggle.png" width={40} height={40} alt="wiggle" />
-                      <h3 className="text-white text-2xl font-thin mb-2">Discover Scuba Diving</h3>
-                      <p className="text-[#dcf106] text-xl">Swim in Crystal Clear Water</p>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Popup */}
-                {hoveredPopup === 1 && <CoursePopup title="Availble Courses" courses={courseData1} onClose={() => setHoveredPopup(null)} />}
-              </div>
-
-              {/* Grid Item 2 */}
               <div className="relative">
-                {/* Gambar konten */}
-                <div className="relative h-[400px] w-full overflow-hidden rounded-xl shadow-lg">
-                  <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: "url('/images/teach.jpg')" }} />
-                  <div className="absolute inset-0 bg-black/50" />
-                  <div className="relative z-10 h-full flex items-end justify-start px-8 pb-8 text-left">
-                    <div>
-                      <Image src="/wiggle.png" width={40} height={40} alt="wiggle" />
-                      <h3 className="text-white text-2xl font-thin mb-2">Kids Course</h3>
-                      <p className="text-[#dcf106] text-xl">Start Your Certification</p>
-                    </div>
-                  </div>
+                <div className="relative">
+                  <AnimatedPin
+                    heading="Discover Scuba Diving"
+                    description="Swim in Crystal Clear Water"
+                    imageSrc="/images/couple.jpg"
+                    iconSrc="/wiggle.png"
+                    titles={[
+                      { label: "Snorkeling Info", href: "https://example.com/snorkeling" },
+                      { label: "Diving Guide", href: "https://example.com/diving" },
+                      { label: "Book a Trip", href: "https://example.com/book" },
+                    ]}
+                  />
                 </div>
-
-                {/* Popup */}
-                {hoveredPopup === 2 && <CoursePopup title="Available Services" courses={courseData2} onClose={() => setHoveredPopup(null)} />}
+              </div>
+              <div className="relative">
+                <div className="relative ">
+                  <AnimatedPin
+                    heading="Our Course"
+                    description="Swim in Crystal Clear Water"
+                    imageSrc="/images/teach.jpg"
+                    iconSrc="/wiggle.png"
+                    titles={[
+                      { label: "Snorkeling Info", href: "https://example.com/snorkeling" },
+                      { label: "Diving Guide", href: "https://example.com/diving" },
+                      { label: "Book a Trip", href: "https://example.com/book" },
+                    ]}
+                  />
+                </div>
               </div>
             </div>
           </div>
@@ -185,42 +185,6 @@ export default function Courses() {
         <section className="min-h-[645px] flex items-center justify-center bg-cover bg-center" style={{ backgroundImage: "url('/bgn.png')" }}>
           <div className="container lg:mx-72 px-4 lg:px-0 pt-[43px] pb-[50px] lg:pt-[111px] lg:pb-[130px]">
             <h2 className="font-poppins-600 lg:text-[45px] text-[32px] text-white text-center font-semibold mb-12">Our Instagram</h2>
-          </div>
-        </section>
-        <section className="min-h-[645px] flex items-center justify-center bg-cover bg-center" style={{ backgroundImage: "url('/bgn.png')" }}>
-          <div className="container lg:mx-72 px-4 lg:px-0 pt-[43px] pb-[50px] lg:pt-[111px] lg:pb-[130px]">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <ThreeDCard
-                title="Explore the Ocean"
-                description="Join our guided diving experience and see the underwater world like never before."
-                imageUrl="/images/couple.jpg"
-                imageAlt="Ocean view"
-                linkText="Learn More"
-                linkHref="/dive"
-                buttonText="Book Now"
-                onButtonClick={() => alert("Booking initiated!")}
-                onImageClick={handleImageClick}
-                popupId={1}
-              />
-
-              <ThreeDCard
-                title="Explore the Ocean"
-                description="Join our guided diving experience and see the underwater world like never before."
-                imageUrl="/images/couple.jpg"
-                imageAlt="Ocean view"
-                linkText="Learn More"
-                linkHref="/dive"
-                buttonText="Book Now"
-                onButtonClick={() => alert("Booking initiated!")}
-                onImageClick={handleImageClick}
-                popupId={2}
-              />
-            </div>
-            {activePopupId !== null && (
-              <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50">
-                <CoursePopup title={activePopupId === 1 ? "Available Courses" : "Kids Programs"} courses={activePopupId === 1 ? courseData1 : courseData2} onClose={closePopup} />
-              </div>
-            )}
           </div>
         </section>
       </main>
