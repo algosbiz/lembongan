@@ -61,7 +61,7 @@ export default function Courses() {
               <div className="relative z-10">
                 {/* Watermark behind the text */}
                 <FadeInLeft>
-                <div className="absolute inset-0  left-0 z-0 flex items-start justify-start opacity-20 pointer-events-none">
+                <div className="absolute inset-0  left-0 z-0 flex items-start justify-start opacity-10 pointer-events-none">
                   <Image src="/hrwm.png" alt="Watermark" width={100} height={100} className="w-[100px] lg:w-[170px] object-contain" />
                 </div>
                 </FadeInLeft>
