@@ -105,7 +105,7 @@ export default function Navbar() {
                       <div className={`absolute left-0 top-full rounded-b-lg bg-black text-white font-medium shadow-lg min-w-[140px] z-50 overflow-hidden ${animatingOutMenu === item.title ? "animate-dropdown-out" : "animate-dropdown-in"}`}>
                         <div className="pt-5">
                           {item.items.map((subItem) => (
-                            <Link key={subItem.name} href={subItem.href} className="block px-4  py-3 text-sm hover:bg-[#45c0c6] whitespace-nowrap transition-colors">
+                            <Link key={subItem.name} href={subItem.href} className="block px-4  py-3 text-sm hover:bg-[#0d627b] whitespace-nowrap transition-colors">
                               {subItem.name}
                             </Link>
                           ))}

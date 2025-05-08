@@ -1,5 +1,4 @@
 "use client";
-import { ThreeDCard } from "@/components/3dCard";
 import { AnimatedPin } from "@/components/3dpin";
 import CoursePopup from "@/components/coursePopup";
 import ExpandableText from "@/components/expandable-text";
@@ -12,6 +11,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion } from "motion/react";
 import { useRef, useState } from "react";
+import { ThreeDCardB } from "@/components/3dCardb";
+import { ThreeDCardC } from "@/components/3dCardc";
+import { ThreeDCardA } from "@/components/3dCarda";
 
 export default function Courses() {
   const courseData1 = [
@@ -30,13 +32,13 @@ export default function Courses() {
   const [hoveredPopup, setHoveredPopup] = useState<number | null>(null);
   const [activePopupId, setActivePopupId] = useState<number | null>(null);
 
-   const handleImageClick = (id: number) => {
-     setActivePopupId(id);
-   };
+  const handleImageClick = (id: number) => {
+    setActivePopupId(id);
+  };
 
-   const closePopup = () => {
-     setActivePopupId(null);
-   };
+  const closePopup = () => {
+    setActivePopupId(null);
+  };
 
   return (
     <Layout>
@@ -52,17 +54,22 @@ export default function Courses() {
         </div>
       </section>
       <main className="mx-auto">
-        <section className="min-h-[645px] flex items-center justify-center bg-cover bg-center transition-all duration-700" style={{ backgroundImage: "url('/bgn.png')" }}>
+        <section className="min-h-[645px] flex items-center justify-center bg-cover bg-center transition-all duration-700 relative" style={{ backgroundImage: "url('/bgn.png')" }}>
           <div className="container lg:mx-72 px-4 lg:px-0 pb-[59px] pt-[59px] lg:pb-[130px] lg:pt-[130px]">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:gap-24">
-              {/* LEFT: Image */}
-              <FadeInLeft>
-                <div>
-                  <div className="relative">
-                    <div className="absolute inset-0 -z-10 flex items-center justify-center opacity-40 pointer-events-none">
-                      <Image src="/hrwm.png" alt="Watermark" width={500} height={500} className="w-[300px] lg:w-[450px] object-contain" />
-                    </div>
-                    <h4 className="font-montserrat-600 text-[20px] lg:text-[25px] text-[#dcf106]  font-semibold">Your holiday’s highlight!</h4>
+              {/* LEFT CONTENT */}
+              <div className="relative z-10">
+                {/* Watermark behind the text */}
+                <FadeInLeft>
+                <div className="absolute inset-0 left-0 z-0 flex items-start justify-start opacity-40 pointer-events-none">
+                  <Image src="/hrwm.png" alt="Watermark" width={100} height={100} className="w-[100px] lg:w-[130px] object-contain" />
+                </div>
+                </FadeInLeft>
+
+                {/* Foreground text */}
+                <FadeInLeft>
+                  <div className="relative z-10">
+                    <h4 className="font-montserrat-600 text-[20px] lg:text-[25px] text-[#dcf106] font-semibold">Your holiday’s highlight!</h4>
                     <h2 className="font-poppins-600 lg:text-[45px] text-[32px] text-white max-w-md font-semibold lg:mb-6 lg:mt-0 mb-5 leading-tight">Set Off On an Exhilarating Day Trip Adventure</h2>
                   </div>
                   <ExpandableText
@@ -70,21 +77,21 @@ export default function Courses() {
                     fullText={
                       <>They serve as an excellent option for those who may not feel ready for scuba diving or are traveling with family. Each location offers the chance to discover colorful coral reefs and a rich variety of marine life.</>
                     }
-                    className="text-white  leading-10"
+                    className="text-white leading-10"
                     symbolColor="#dcf106"
                     onToggle={(state) => setExpanded1(state)}
                   />
-                </div>
-              </FadeInLeft>
-              <FadeInRight>
-                <div className="mt-5 lg:mt-0">
-                  <div className={`relative w-full overflow-hidden rounded-lg rounded-bl-[100px] shadow-lg transform transition-all duration-500 ${expanded1 ? "pb-[145%] scale-100" : "pb-[88.95%] scale-100"}`}>
-                    <Image src="/images/penidak.jpg" alt="Kids Learn" fill className="object-cover" />
-                  </div>
-                </div>
-              </FadeInRight>
+                </FadeInLeft>
+              </div>
 
-              {/* RIGHT: Expandable text */}
+              {/* RIGHT IMAGE */}
+              <FadeInRight>
+              <div className="mt-5 lg:mt-0">
+                <div className={`relative w-full overflow-hidden rounded-lg rounded-bl-[100px] shadow-lg transform transition-all duration-500 ${expanded1 ? "pb-[145%] scale-100" : "pb-[88.95%] scale-100"}`}>
+                  <Image src="/images/penidak.jpg" alt="Kids Learn" fill className="object-cover" />
+                </div>
+              </div>
+              </FadeInRight>
             </div>
           </div>
         </section>
@@ -94,8 +101,8 @@ export default function Courses() {
             <h2 className="font-poppins-600 lg:text-[45px] text-[32px] text-[#007c87] lg:text-center font-semibold mb-12">Learn More About Our Snorkeling Trips</h2>
             <div className="">
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <ThreeDCard
-                  title="Explore the Ocean"
+                <ThreeDCardB
+                  title="Explore the Deeps"
                   description="Join our guided diving experience and see the underwater world like never before."
                   imageUrl="/images/couple.jpg"
                   imageAlt="Ocean view"
@@ -107,8 +114,8 @@ export default function Courses() {
                   popupId={1}
                 />
 
-                <ThreeDCard
-                  title="Explore the Ocean"
+                <ThreeDCardC
+                  title="Snorkeling In Penida"
                   description="Join our guided diving experience and see the underwater world like never before."
                   imageUrl="/images/couple.jpg"
                   imageAlt="Ocean view"
@@ -119,8 +126,8 @@ export default function Courses() {
                   onImageClick={handleImageClick}
                   popupId={2}
                 />
-                <ThreeDCard
-                  title="Explore the Ocean"
+                <ThreeDCardA
+                  title="Snorkeling In Komodo"
                   description="Join our guided diving experience and see the underwater world like never before."
                   imageUrl="/images/couple.jpg"
                   imageAlt="Ocean view"
@@ -143,33 +150,33 @@ export default function Courses() {
         <section className="min-h-[645px] flex items-center justify-center bg-cover bg-center" style={{ backgroundImage: "url('/bgn.png')" }}>
           <div className="container lg:mx-72 px-4 lg:px-0 pt-[43px] pb-[50px] lg:pt-[111px] lg:pb-[160px]">
             <h2 className="font-poppins-600 lg:text-[45px] text-[32px] text-white lg:text-center font-semibold mb-12">Learn To Dive</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 ">
               <div className="relative">
-                <div className="relative">
+                <div className="relative z-10">
                   <AnimatedPin
                     heading="Discover Scuba Diving"
                     description="Swim in Crystal Clear Water"
                     imageSrc="/images/couple.jpg"
                     iconSrc="/wiggle.png"
                     titles={[
-                      { label: "Snorkeling Info", href: "https://example.com/snorkeling" },
-                      { label: "Diving Guide", href: "https://example.com/diving" },
-                      { label: "Book a Trip", href: "https://example.com/book" },
+                      { label: "Penida", href: "https://example.com/snorkeling" },
+                      { label: "Lembongan", href: "https://example.com/diving" },
+                      { label: "Komodo", href: "https://example.com/book" },
                     ]}
                   />
                 </div>
               </div>
               <div className="relative">
-                <div className="relative ">
+                <div className="relative z-10">
                   <AnimatedPin
                     heading="Our Course"
                     description="Swim in Crystal Clear Water"
                     imageSrc="/images/teach.jpg"
                     iconSrc="/wiggle.png"
                     titles={[
-                      { label: "Snorkeling Info", href: "https://example.com/snorkeling" },
-                      { label: "Diving Guide", href: "https://example.com/diving" },
-                      { label: "Book a Trip", href: "https://example.com/book" },
+                      { label: "Penida", href: "https://example.com/snorkeling" },
+                      { label: "Lembongan", href: "https://example.com/diving" },
+                      { label: "Komodo", href: "https://example.com/book" },
                     ]}
                   />
                 </div>

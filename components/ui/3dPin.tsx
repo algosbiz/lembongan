@@ -4,6 +4,7 @@ import { motion } from "motion/react";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import Image from "next/image";
+import { ButtonGlowing, MovingBorder } from "./buttonGlowing";
 
 type TitleLink = { label: string; href: string };
 
@@ -38,15 +39,25 @@ export const PinPerspective = ({ titles }: { titles?: { label: string; href: str
 
         <div className="absolute top-0 inset-x-0 flex justify-center space-x-2 pointer-events-auto">
           {titles?.map((item, index) => (
-            <Link key={index} href={item.href} target="_blank" rel="noopener noreferrer" className="relative flex space-x-2 items-center z-10 rounded-full bg-zinc-950 py-0.5 px-4 ring-1 ring-white/10 hover:bg-zinc-800 transition justify-center">
-              <div className="flex flex-col justify-center items-center">
-              <div className="absolute -top-10 z-40">
-                <Image src="/map.png" alt="Logo" width={40} height={40} />
+            <div className="relative z-10 flex flex-col items-center">
+              <div className="absolute -top-8">
+                <Image src="/map.png" alt="Logo" width={60} height={60} />
               </div>
-              <span className="text-white text-xs text-center font-bold inline-block py-0.5">{item.label}</span>
-              <span className="absolute -bottom-0 left-[1.125rem] h-px w-[calc(100%-2.25rem)] bg-gradient-to-r from-emerald-400/0 via-emerald-400/90 to-emerald-400/0 transition-opacity duration-500 group-hover/btn:opacity-40" />
-              </div>
-            </Link>
+
+              <ButtonGlowing
+                as={Link}
+                href={item.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                borderRadius="9999px"
+                duration={3000}
+                containerClassName="w-fit mt-8" // ruang untuk gambar di atas
+                className="py-1 px-4 text-sm font-bold"
+              >
+                <span className="text-white">{item.label}</span>
+                <span className="absolute -bottom-0 left-[1.125rem] h-px w-[calc(100%-2.25rem)] bg-gradient-to-r from-emerald-400/0 via-emerald-400/90 to-emerald-400/0 transition-opacity duration-500 group-hover/btn:opacity-40" />
+              </ButtonGlowing>
+            </div>
           ))}
         </div>
 
