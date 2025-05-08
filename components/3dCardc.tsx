@@ -34,8 +34,8 @@ export function ThreeDCardC({ title, description, imageUrl, imageAlt = "thumbnai
         </CardItem>
 
         {/* Action Buttons */}
-        <div className="flex justify-center items-center mt-20">
-          <div className="relative z-10 w-full h-full flex flex-col items-center justify-end p-4 text-white">
+        <div className="flex justify-center items-center mt-28">
+          <div className="relative z-10 w-full h-full flex flex-col items-center justify-end p-0 text-white">
             <Button className="bg-[#ff0000] h-[62px] flex items-center w-full text-white text-[20px]">Sign up</Button>
           </div>
         </div>

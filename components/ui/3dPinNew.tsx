@@ -5,10 +5,11 @@ import { cn } from "@/lib/utils";
 import Link from "next/link";
 import Image from "next/image";
 import { ButtonGlowing, MovingBorder } from "./buttonGlowing";
+import { ButtonGlowingNew } from "./buttonG";
 
 type TitleLink = { label: string; href: string };
 
-export const PinContainer = ({ children, titles, className, containerClassName }: { children: React.ReactNode; titles?: { label: string; href: string }[]; className?: string; containerClassName?: string }) => {
+export const PinContainerNew = ({ children, titles, className, containerClassName }: { children: React.ReactNode; titles?: { label: string; href: string }[]; className?: string; containerClassName?: string }) => {
   const [transform, setTransform] = useState("translate(-50%,-50%) rotateX(0deg)");
 
   const onMouseEnter = () => setTransform("translate(-50%,-50%) rotateX(40deg) scale(0.8)");
@@ -29,8 +30,6 @@ export const PinContainer = ({ children, titles, className, containerClassName }
   );
 };
 
-
-
 export const PinPerspective = ({ titles }: { titles?: { label: string; href: string }[] }) => {
   return (
     <motion.div className="w-96 h-96 flex items-center justify-center opacity-0 group-hover/pin:opacity-100 z-[60] transition duration-500">
@@ -44,10 +43,10 @@ export const PinPerspective = ({ titles }: { titles?: { label: string; href: str
                 <Image src="/map.png" alt="Logo" width={60} height={60} />
               </div>
 
-              <ButtonGlowing as={Link} href={item.href} target="_blank" rel="noopener noreferrer" borderRadius="9999px" duration={3000} containerClassName="w-[150px] mt-9" className="py-0 flex items-center px-4 text-xl font-bold mb-5">
-                <span className="text-[#dcf106]">{item.label}</span>
+              <ButtonGlowingNew as={Link} href={item.href} target="_blank" rel="noopener noreferrer" borderRadius="9999px" duration={3000} containerClassName="w-[150px] mt-9" className="py-0 flex items-center px-4 text-xl font-bold mb-5">
+                <span className="text-white">{item.label}</span>
                 {/* <span className="absolute -bottom-0 left-[1.125rem] h-px w-[calc(100%-2.25rem)] bg-gradient-to-r from-emerald-400/0 via-emerald-400/90 to-emerald-400/0 transition-opacity duration-500 group-hover/btn:opacity-40" /> */}
-              </ButtonGlowing>
+              </ButtonGlowingNew>
             </div>
           ))}
         </div>
@@ -76,6 +75,3 @@ export const PinPerspective = ({ titles }: { titles?: { label: string; href: str
     </motion.div>
   );
 };
-
-
-

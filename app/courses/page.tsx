@@ -14,6 +14,7 @@ import { useRef, useState } from "react";
 import { ThreeDCardB } from "@/components/3dCardb";
 import { ThreeDCardC } from "@/components/3dCardc";
 import { ThreeDCardA } from "@/components/3dCarda";
+import { AnimatedPinNew } from "@/components/3dPinNew";
 
 export default function Courses() {
   const courseData1 = [
@@ -153,7 +154,7 @@ export default function Courses() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 ">
               <div className="relative">
                 <div className="relative z-10">
-                  <AnimatedPin
+                  <AnimatedPinNew
                     heading="Discover Scuba Diving"
                     description="Swim in Crystal Clear Water"
                     imageSrc="/images/couple.jpg"

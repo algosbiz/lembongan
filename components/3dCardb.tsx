@@ -37,7 +37,7 @@ export function ThreeDCardB({ title, description, imageUrl, imageAlt = "thumbnai
           <CardItem translateZ={20} as="a" href={linkHref} target="_blank" className="px-4 py-0 rounded-xl  text-sm font-normal text-white">
             {linkText}
           </CardItem>
-          <CardItem translateZ={20} as="button" onClick={onButtonClick} className="px-4 py-2 rounded-xl bg-black dark:bg-white dark:text-black text-white text-xs font-bold">
+          <CardItem translateZ={20} as="button" onClick={onButtonClick} className="px-10 py-2 rounded-full bg-black dark:bg-white dark:text-black text-white text-sm h-[59px]">
             {buttonText}
           </CardItem>
         </div>

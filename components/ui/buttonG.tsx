@@ -4,7 +4,7 @@ import { motion, useAnimationFrame, useMotionTemplate, useMotionValue, useTransf
 import { useRef } from "react";
 import { cn } from "@/lib/utils";
 
-export function ButtonGlowing({
+export function ButtonGlowingNew({
   borderRadius = "1.75rem",
   children,
   as: Component = "button",
@@ -25,7 +25,7 @@ export function ButtonGlowing({
 }) {
   return (
     <Component
-      className={cn("relative h-full w-20 overflow-hidden bg-transparent p-[1px] text-xl", containerClassName)}
+      className={cn("relative h-full w-20 overflow-hidden bg-white p-[1px] text-xl", containerClassName)}
       style={{
         borderRadius: borderRadius,
       }}
@@ -38,7 +38,7 @@ export function ButtonGlowing({
       </div>
 
       <div
-        className={cn("relative flex h-full w-full items-center justify-center border border-slate-800 bg-slate-900/[0.8] text-sm text-white antialiased backdrop-blur-xl", className)}
+        className={cn("relative flex h-full w-full items-center justify-center border border-slate-800 bg-red-600 text-sm text-white antialiased backdrop-blur-xl", className)}
         style={{
           borderRadius: `calc(${borderRadius} * 0.96)`,
         }}
