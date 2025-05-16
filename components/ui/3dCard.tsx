@@ -1,7 +1,6 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-
 import React, { createContext, useState, useContext, useRef, useEffect } from "react";
 
 const MouseEnterContext = createContext<[boolean, React.Dispatch<React.SetStateAction<boolean>>] | undefined>(undefined);
@@ -10,24 +9,37 @@ export const CardContainer = ({ children, className, containerClassName }: { chi
   const containerRef = useRef<HTMLDivElement>(null);
   const [isMouseEntered, setIsMouseEntered] = useState(false);
 
+  const applyTransform = (xPercent: number, yPercent: number) => {
+    const rotateX = yPercent * 15;
+    const rotateY = xPercent * 15;
+    if (containerRef.current) {
+      containerRef.current.style.transform = `rotateY(${rotateY}deg) rotateX(${-rotateX}deg)`;
+    }
+  };
+
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     if (!containerRef.current) return;
     const { left, top, width, height } = containerRef.current.getBoundingClientRect();
-    const x = (e.clientX - left - width / 2) / 25;
-    const y = (e.clientY - top - height / 2) / 25;
-    containerRef.current.style.transform = `rotateY(${x}deg) rotateX(${y}deg)`;
+    const x = (e.clientX - left) / width - 0.5;
+    const y = (e.clientY - top) / height - 0.5;
+    applyTransform(x * 2, y * 2);
   };
 
-  const handleMouseEnter = (e: React.MouseEvent<HTMLDivElement>) => {
-    setIsMouseEntered(true);
-    if (!containerRef.current) return;
+  const handleTouchMove = (e: React.TouchEvent<HTMLDivElement>) => {
+    if (!containerRef.current || e.touches.length === 0) return;
+    const touch = e.touches[0];
+    const { left, top, width, height } = containerRef.current.getBoundingClientRect();
+    const x = (touch.clientX - left) / width - 0.5;
+    const y = (touch.clientY - top) / height - 0.5;
+    applyTransform(x * 2, y * 2);
   };
 
-  const handleMouseLeave = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!containerRef.current) return;
-    setIsMouseEntered(false);
-    containerRef.current.style.transform = `rotateY(0deg) rotateX(0deg)`;
+  const resetTransform = () => {
+    if (containerRef.current) {
+      containerRef.current.style.transform = `rotateY(0deg) rotateX(0deg)`;
+    }
   };
+
   return (
     <MouseEnterContext.Provider value={[isMouseEntered, setIsMouseEntered]}>
       <div
@@ -38,9 +50,18 @@ export const CardContainer = ({ children, className, containerClassName }: { chi
       >
         <div
           ref={containerRef}
-          onMouseEnter={handleMouseEnter}
+          onMouseEnter={() => setIsMouseEntered(true)}
+          onMouseLeave={() => {
+            setIsMouseEntered(false);
+            resetTransform();
+          }}
           onMouseMove={handleMouseMove}
-          onMouseLeave={handleMouseLeave}
+          onTouchStart={() => setIsMouseEntered(true)}
+          onTouchEnd={() => {
+            setIsMouseEntered(false);
+            resetTransform();
+          }}
+          onTouchMove={handleTouchMove}
           className={cn("flex items-center justify-center relative transition-all duration-200 ease-linear", className)}
           style={{
             transformStyle: "preserve-3d",
@@ -54,7 +75,7 @@ export const CardContainer = ({ children, className, containerClassName }: { chi
 };
 
 export const CardBody = ({ children, className }: { children: React.ReactNode; className?: string }) => {
-  return <div className={cn("h-96 w-96 [transform-style:preserve-3d]  [&>*]:[transform-style:preserve-3d]", className)}>{children}</div>;
+  return <div className={cn("h-96 w-96 [transform-style:preserve-3d] [&>*]:[transform-style:preserve-3d]", className)}>{children}</div>;
 };
 
 export const CardItem = ({
@@ -92,7 +113,7 @@ export const CardItem = ({
     if (isMouseEntered) {
       ref.current.style.transform = `translateX(${translateX}px) translateY(${translateY}px) translateZ(${translateZ}px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) rotateZ(${rotateZ}deg)`;
     } else {
-      ref.current.style.transform = `translateX(0px) translateY(0px) translateZ(0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg)`;
+      ref.current.style.transform = "translateX(0px) translateY(0px) translateZ(0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg)";
     }
   };
 
@@ -103,7 +124,7 @@ export const CardItem = ({
   );
 };
 
-// Create a hook to use the context
+// Hook untuk context
 export const useMouseEnter = () => {
   const context = useContext(MouseEnterContext);
   if (context === undefined) {
