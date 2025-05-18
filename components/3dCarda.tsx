@@ -20,7 +20,7 @@ type ThreeDCardProps = {
 export function ThreeDCardA({ title, description, imageUrl, imageAlt = "thumbnail", linkText = "Try now →", linkHref = "#", buttonText = "Sign up", onButtonClick, onImageClick, popupId }: ThreeDCardProps) {
   return (
     <CardContainer className="inter-var cursor-pointer">
-      <CardBody className="bg-[#3eb8bf] relative group/card dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black dark:border-white/[0.2] border-black/[0.1] w-auto sm:w-[25rem] h-full rounded-xl p-6 border">
+      <CardBody className="bg-[#3eb8bf] relative group/card dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black dark:border-white/[0.2] border-black/[0.1] w-auto sm:w-[25rem] h-full rounded-xl p-10 border">
         {/* Background Image Section with Text Overlay */}
         <CardItem translateZ="100" className="relative w-full h-60 mt-4 rounded-br-[40px] rounded-bl-sm rounded-tl-sm rounded-tr-sm overflow-hidden" onClick={() => onImageClick?.(popupId!)}>
           <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${imageUrl})` }} aria-hidden="true" />

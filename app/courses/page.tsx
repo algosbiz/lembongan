@@ -176,42 +176,42 @@ export default function Courses() {
                     iconSrc="/wiggle.png"
                     titles={[
                       { label: "Penida", href: "https://example.com/snorkeling" },
-                      // { label: "Lembongan", href: "https://example.com/diving" },
-                      // { label: "Komodo", href: "https://example.com/book" },
-                    ]}
-                  />
-                </div>
-              </div>
-              <div className="relative">
-                <div className="relative z-10">
-                  <AnimatedPin
-                    heading="Our Course"
-                    description="Swim in Crystal Clear Water"
-                    imageSrc="/images/teach.jpg"
-                    iconSrc="/wiggle.png"
-                    titles={[
-                      // { label: "Penida", href: "https://example.com/snorkeling" },
                       { label: "Lembongan", href: "https://example.com/diving" },
-                      // { label: "Komodo", href: "https://example.com/book" },
-                    ]}
-                  />
-                </div>
-              </div>
-              <div className="relative">
-                <div className="relative z-10">
-                  <AnimatedPin
-                    heading="Our Course"
-                    description="Swim in Crystal Clear Water"
-                    imageSrc="/images/teach.jpg"
-                    iconSrc="/wiggle.png"
-                    titles={[
-                      // { label: "Penida", href: "https://example.com/snorkeling" },
-                      // { label: "Lembongan", href: "https://example.com/diving" },
                       { label: "Komodo", href: "https://example.com/book" },
                     ]}
                   />
                 </div>
               </div>
+              {/* <div className="relative">
+                <div className="relative z-10">
+                  <AnimatedPin
+                    heading="Our Course"
+                    description="Swim in Crystal Clear Water"
+                    imageSrc="/images/teach.jpg"
+                    iconSrc="/wiggle.png"
+                    titles={[
+                      { label: "Penida", href: "https://example.com/snorkeling" },
+                      { label: "Lembongan", href: "https://example.com/diving" },
+                      { label: "Komodo", href: "https://example.com/book" },
+                    ]}
+                  />
+                </div>
+              </div> */}
+              {/* <div className="relative">
+                <div className="relative z-10">
+                  <AnimatedPin
+                    heading="Our Course"
+                    description="Swim in Crystal Clear Water"
+                    imageSrc="/images/teach.jpg"
+                    iconSrc="/wiggle.png"
+                    titles={[
+                      { label: "Penida", href: "https://example.com/snorkeling" },
+                      { label: "Lembongan", href: "https://example.com/diving" },
+                      { label: "Komodo", href: "https://example.com/book" },
+                    ]}
+                  />
+                </div>
+              </div> */}
             </div>
           </div>
         </section>
